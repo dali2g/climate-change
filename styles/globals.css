@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 173, 26%, 93%;
+    --foreground: 160, 8%, 15%;
+
+    --primary: 133, 49%, 58%; /* green for buttons */
+    --primary-foreground: 205, 95%, 37%; /* blue for buttons */
+
+    --card: 0 0% 100%; /* white for light mode */
+    --card-foreground: 222.2 47.4% 11.2%; /* black for light mode */
+  }
+
+  .dark {
+    --background: 160, 8%, 15%; /* black for dark mode */
+    --foreground: 173, 26%, 93%; /* white for dark mode */
+
+    --primary: 205, 95%, 37%; /* blue for buttons */
+    --primary-foreground: 133, 49%, 58%; /* green for buttons */
+
+    --card: 224 71% 4%; /* black for dark mode */
+    --card-foreground: 213 31% 91%; /* white for dark mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
