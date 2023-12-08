@@ -9,12 +9,14 @@ import Image from 'next/image'
 
 interface ChatProps {
   climateData: string
+  temperature: number;
+  weatherCondition: string;
 
 }
 
 //==================================================
 
-const  GetSaticProps = async (input:string) =>{
+const  GetSaticProps = async (input:any) =>{
   const url="https://api.chatclimate.ai/chat/"
  
   var data ={
@@ -39,11 +41,12 @@ const  GetSaticProps = async (input:string) =>{
   console.log(res)
   var abc = res.response?res.response:res.detail
 
-  return(
-      {props:{
-        climateData:""
-      }}
-  )
+  return {
+    props: {
+      climateData: abc,
+    },
+  };
+  
 }
 
 
