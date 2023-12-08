@@ -14,10 +14,9 @@ interface ChatProps {
 
 //==================================================
 
-const  GetSaticProps = async () =>{
+const  GetSaticProps = async (input:string) =>{
   const url="https://api.chatclimate.ai/chat/"
  
-  var input = 'ClimateChange'
   var data ={
     content:input,
     completionModel:"gpt-3.5-turbo",
@@ -47,6 +46,7 @@ const  GetSaticProps = async () =>{
 
 
 //================================================
+//@ts-ignore
 const Chat:React.FC<ChatProps> = ({climateData}) => {
   const [output, setoutput] = useState('')
   const [input, setinput] = useState('')
@@ -64,7 +64,7 @@ const Chat:React.FC<ChatProps> = ({climateData}) => {
 
               setoutput("Loading...")
               
-            var a = await GetSaticProps()
+            var a = await GetSaticProps(input)
             setoutput(a.props.climateData)
            } } 
           >
