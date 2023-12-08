@@ -23,4 +23,3 @@ export default async function handle (input){
     console.log(res)
     return(res.response?res.response:res.detail)
   }
-

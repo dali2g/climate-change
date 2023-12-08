@@ -1,4 +1,5 @@
 "use client"
+import NextCors from 'nextjs-cors';
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import React,{useState} from 'react'
