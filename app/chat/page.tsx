@@ -13,7 +13,7 @@ const Chat = () => {
   return (
    <section className='container grid items-center gap-6 pb-8 pt-6 md:py-10'>
       <h1 className='text-xl font-bold font-serif'>
-        Ask a Question About Climate Change !
+        Ask a Question About Climate Change !!
       </h1>
       <div className='bg-primary-background'>
         <Textarea className='rounded-3xl font-semibold' placeholder='Ask a question' onChange={(e)=> setinput(e.target.value)  }/>
