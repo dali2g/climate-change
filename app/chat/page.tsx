@@ -4,46 +4,13 @@ import { Textarea } from '@/components/ui/textarea'
 import React,{useState} from 'react'
 import Loader from "@/public/loader.gif"
 import Image from 'next/image'
-
+import GetStaticProps from "@/app/api/index"
 
 interface ChatProps {
   climateData: any;
 }
 
 //==================================================
-
-export const  GetSaticProps = async (input:any) =>{
-  const url="https://api.chatclimate.ai/chat/"
- 
-  var data ={
-    content:input,
-    completionModel:"gpt-3.5-turbo",
-    mode:"Hybrid"}
-  console.log(data)
-  const response = await fetch(url, {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "application/json",
-      "Ocp-Apim-Subscription-Key":"dfe20b1a046a4b27a35b0de7e3937af5",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data), // body data type must match "Content-Type" header
-  });
-  const res=await response.json();
-  console.log(res)
-  var abc = res.response?res.response:res.detail
-
-  return {
-    props: {
-      climateData: abc,
-    },
-  };
-  
-}
 
 
 //================================================
@@ -65,7 +32,7 @@ const Chat:React.FC<ChatProps> = ({climateData}) => {
 
               setoutput("Loading...")
               
-            var a = await GetSaticProps(input)
+            var a = await GetStaticProps(input)
             setoutput(a.props.climateData)
            } } 
           >
