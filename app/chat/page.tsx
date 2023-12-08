@@ -2,25 +2,17 @@
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import React,{useState} from 'react'
+import handle from "@/app/api/index"
 import Loader from "@/public/loader.gif"
 import Image from 'next/image'
-import GetStaticProps from "@/app/api/index"
-
-
-
-//==================================================
-
-
-//================================================
-//@ts-ignore
-const Chat:React.FC<ChatProps> = ({climateData}) => {
-  const [output, setoutput] = useState<string>('')
-  const [input, setinput] = useState<string>('')
+const Chat = () => {
+  const [output, setoutput] = useState('')
+  const [input, setinput] = useState('')
   const [loading, setloading] = useState(false)
   return (
    <section className='container grid items-center gap-6 pb-8 pt-6 md:py-10'>
       <h1 className='text-xl font-bold font-serif'>
-        Ask a Question About Climate Change !!
+        Ask a Question About Climate Change !
       </h1>
       <div className='bg-primary-background'>
         <Textarea className='rounded-3xl font-semibold' placeholder='Ask a question' onChange={(e)=> setinput(e.target.value)  }/>
@@ -29,9 +21,9 @@ const Chat:React.FC<ChatProps> = ({climateData}) => {
             async () => { 
 
               setoutput("Loading...")
-              
-            var a = await GetStaticProps(input)
-            setoutput(a.props.climateData)
+
+            var a = await handle(input)
+            setoutput(a)
            } } 
           >
           Submit Question</Button>
@@ -44,11 +36,7 @@ const Chat:React.FC<ChatProps> = ({climateData}) => {
 
 
       </div>
+      </section>
+  )}
 
-        
-
-    </section>
-  )
-}
-
-export default Chat
+  export default Chat

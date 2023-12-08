@@ -1,6 +1,5 @@
- const  GetStaticProps = async (input) =>{
-    const url="https://api.chatclimate.ai/chat/"
-   
+const url="https://api.chatclimate.ai/chat/"
+export default async function handle (input){
     var data ={
       content:input,
       completionModel:"gpt-3.5-turbo",
@@ -8,6 +7,7 @@
     console.log(data)
     const response = await fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
       credentials: "same-origin", // include, *same-origin, omit
       headers: {
@@ -21,15 +21,5 @@
     });
     const res=await response.json();
     console.log(res)
-    var abc = res.response?res.response:res.detail
-  
-    return {
-      props: {
-        climateData: abc,
-      },
-    };
-    
+    return(res.response?res.response:res.detail)
   }
-  
-
-  export default GetStaticProps;
