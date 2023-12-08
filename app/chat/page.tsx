@@ -6,9 +6,7 @@ import Loader from "@/public/loader.gif"
 import Image from 'next/image'
 import GetStaticProps from "@/app/api/index"
 
-interface ChatProps {
-  climateData: any;
-}
+
 
 //==================================================
 
