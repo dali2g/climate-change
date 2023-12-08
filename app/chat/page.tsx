@@ -1,5 +1,4 @@
 "use client"
-import NextCors from 'nextjs-cors';
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import React,{useState} from 'react'
@@ -8,15 +7,12 @@ import Image from 'next/image'
 
 
 interface ChatProps {
-  climateData: string
-  temperature: number;
-  weatherCondition: string;
-
+  climateData: any;
 }
 
 //==================================================
 
-const  GetSaticProps = async (input:any) =>{
+export const  GetSaticProps = async (input:any) =>{
   const url="https://api.chatclimate.ai/chat/"
  
   var data ={
