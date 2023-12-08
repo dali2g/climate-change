@@ -40,7 +40,9 @@ const  GetSaticProps = async (input:string) =>{
   var abc = res.response?res.response:res.detail
 
   return(
-      {props:{climateData:abc}}
+      {props:{
+        climateData:""
+      }}
   )
 }
 
@@ -48,8 +50,8 @@ const  GetSaticProps = async (input:string) =>{
 //================================================
 //@ts-ignore
 const Chat:React.FC<ChatProps> = ({climateData}) => {
-  const [output, setoutput] = useState('')
-  const [input, setinput] = useState('')
+  const [output, setoutput] = useState<string>('')
+  const [input, setinput] = useState<string>('')
   const [loading, setloading] = useState(false)
   return (
    <section className='container grid items-center gap-6 pb-8 pt-6 md:py-10'>
